@@ -6,7 +6,7 @@ const apiRouterArticulo = require('./api/articulos');
 const router = routerx();
 
 router.use('/usuario', apiRouterUser); //.com/api/usuario
-// router.use('/categoria', apiRouterCategoria); //.com/api/categoria
-// router.use('/articulo', apiRouterArticulo); //.com/api/articulo
+router.use('/categoria', apiRouterCategoria); //.com/api/categoria
+router.use('/articulo', apiRouterArticulo); //.com/api/articulo
 
 module.exports = router;
