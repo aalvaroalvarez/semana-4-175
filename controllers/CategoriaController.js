@@ -4,6 +4,7 @@ const models = require('../models');
 //Controlador route list - localhost:3000/api/categoria/list
 exports.list = async (req, res, next) => {
     try {
+        //{where: {estado: 1}}
         const registro = await models.Categoria.findAll();
         if (registro) {
             res.status(200).json(registro);
@@ -45,8 +46,10 @@ exports.update = async (req, res, next) => {
         if (registro) {
             const registro = await models.Categoria.update(
                 { 
+                    codigo: req.body.codigo,
                     nombre: req.body.nombre, 
-                    descripcion: req.body.descripcion 
+                    descripcion: req.body.descripcion, 
+                    categoriaid: req.body.categoriaid
                 },
                 {
                     where: {

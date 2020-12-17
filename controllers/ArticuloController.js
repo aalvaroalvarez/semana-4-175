@@ -4,7 +4,15 @@ const models = require('../models');
 //Controlador route list - localhost:3000/api/articulo/list
 exports.list = async (req, res, next) => {
     try {
-        const registro = await models.Articulo.findAll();
+        const registro = await models.Articulo.findAll({
+            include: [
+                {
+                    model: models.Categoria,
+                    as: 'categoria',
+                    attributes: ['id', 'nombre', 'descripcion']
+                }
+            ]
+        });
         if (registro) {
             res.status(200).json(registro);
         } else {
