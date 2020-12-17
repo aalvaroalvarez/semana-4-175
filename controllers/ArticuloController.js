@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const models = require('../models');
 
 //Controlador route list - localhost:3000/api/articulo/list
+// todo ok
 exports.list = async (req, res, next) => {
     try {
         
