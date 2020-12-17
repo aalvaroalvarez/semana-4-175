@@ -53,8 +53,10 @@ exports.update = async (req, res, next) => {
         const registro = await models.Articulo.findOne({ where: { id: req.body.id } });
         if (registro) {
             const registro = await models.Articulo.update(
-                { 
-                    codigo: req.body.codigo, 
+                {
+                    categoriaid: req.body.categoriaid,
+                    codigo: req.body.codigo,
+                    nombre: req.body.nombre, 
                     descripcion: req.body.descripcion 
                 },
                 {

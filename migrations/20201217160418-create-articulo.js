@@ -20,7 +20,7 @@ module.exports = {
       estado: {
         type: Sequelize.INTEGER
       },
-      categoriaid: {
+      categoriaId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { // User belongsTo Company 1:1
