@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const models = require('../models');
 
-//Controlador route list - localhost:3000/api/categoria/list
+//Controlador route list - .com/api/categoria/list
 exports.list = async (req, res, next) => {
     try {
         //{where: {estado: 1}}
@@ -20,7 +20,7 @@ exports.list = async (req, res, next) => {
         next(error);
     }
 }
-//Controlador route add - localhost:3000/api/categoria/add
+//Controlador route add - .com/api/categoria/add
 exports.add = async (req, res, next) => {
     try {
         const registro = await models.Categoria.findOne({ where: { nombre: req.body.nombre } });
@@ -39,7 +39,7 @@ exports.add = async (req, res, next) => {
         next(error);
     }
 }
-//Controlador route update - localhost:3000/api/categoria/update
+//Controlador route update - .com/api/categoria/update
 exports.update = async (req, res, next) => {
     try {
         const registro = await models.Categoria.findOne({ where: { id: req.body.id } });
@@ -69,7 +69,7 @@ exports.update = async (req, res, next) => {
         next(error);
     }
 }
-//Controlador route activate - localhost:3000/api/categoria/activate
+//Controlador route activate - .com/api/categoria/activate
 exports.activate = async (req, res, next) => {
     try {
         const registro = await models.Categoria.findOne({ where: { id: req.body.id } });
@@ -93,7 +93,7 @@ exports.activate = async (req, res, next) => {
         next(error);
     }
 }
-//Controlador route deactivate - localhost:3000/api/categoria/deactivate
+//Controlador route deactivate - .com/api/categoria/deactivate
 exports.deactivate = async (req, res, next) => {
     try {
         const registro = await models.Categoria.findOne({ where: { id: req.body.id } });

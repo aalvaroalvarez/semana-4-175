@@ -1,8 +1,7 @@
 const router = require('express').Router(); //obtenemos el router de express
 const articuloController = require('../../controllers/ArticuloController')
 
-// Manejo de rutas localhost:3000/api/articulo
-//AGREGAR auth.verficarVendedor
+// Manejo de rutas .com/api/articulo
 router.get('/list',articuloController.list);
 router.post('/add', articuloController.add);
 router.put('/update',articuloController.update);
