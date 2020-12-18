@@ -46,10 +46,8 @@ exports.update = async (req, res, next) => {
         if (registro) {
             const registro = await models.Categoria.update(
                 { 
-                    codigo: req.body.codigo,
                     nombre: req.body.nombre, 
                     descripcion: req.body.descripcion, 
-                    categoriaid: req.body.categoriaid
                 },
                 {
                     where: {

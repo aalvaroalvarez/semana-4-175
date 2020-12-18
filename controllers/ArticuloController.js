@@ -54,10 +54,11 @@ exports.update = async (req, res, next) => {
         if (registro) {
             const registro = await models.Articulo.update(
                 {
-                    categoriaid: req.body.categoriaid,
                     codigo: req.body.codigo,
                     nombre: req.body.nombre, 
-                    descripcion: req.body.descripcion 
+                    descripcion: req.body.descripcion,
+                    estado: req.body.estado, 
+                    categoriaId: req.body.categoriaId 
                 },
                 {
                     where: {
