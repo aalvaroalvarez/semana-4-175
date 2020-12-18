@@ -53,7 +53,7 @@ exports.list = async (req, res, next) => {
 }
 
 //Controller route register - .com/api/usuario/register
-exports.register = async (req, res, next) => {
+exports.add = async (req, res, next) => {
     try {
         // Validamos si existe el correo del usuario a registrar
         const user = await models.Usuario.findOne({ where: { email: req.body.email } });
@@ -99,3 +99,52 @@ exports.update = async (req, res, next) => {
         next(error);
     }
 };
+
+//Controlador route activate - .com/api/usuario/activate
+exports.activate = async (req, res, next) => {
+    try {
+        const registro = await models.Usuario.findOne({ where: { id: req.body.id } });
+        if (registro) {
+            const registro = await models.Usuario.update({ estado: 1 },
+                {
+                    where: {
+                        id: req.body.id
+                    }
+                });
+            res.status(200).json(registro);
+        } else {
+            res.status(404).send({
+                message: 'Usuario no encontrado'
+            });
+        }
+    } catch (error) {
+        res.status(500).send({
+            message: 'ERROR'
+        })
+        next(error);
+    }
+}
+//Controlador route deactivate - .com/api/usuario/deactivate
+exports.deactivate = async (req, res, next) => {
+    try {
+        const registro = await models.Usuario.findOne({ where: { id: req.body.id } });
+        if (registro) {
+            const registro = await models.Usuario.update({ estado: 0 },
+                {
+                    where: {
+                        id: req.body.id
+                    }
+                });
+            res.status(200).json(registro);
+        } else {
+            res.status(404).send({
+                message: 'Usuario no encontrado'
+            });
+        }
+    } catch (error) {
+        res.status(500).send({
+            message: 'ERROR'
+        })
+        next(error);
+    }
+}
