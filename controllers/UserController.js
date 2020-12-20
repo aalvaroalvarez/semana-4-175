@@ -81,7 +81,12 @@ exports.update = async (req, res, next) => {
         // Validamos si existe el correo del usuario a registrar
         const user = await models.Usuario.findOne({ where: { email: req.body.email } });
         if (user) {
-            const user = await models.Usuario.update({ nombre: req.body.nombre },
+            const user = await models.Usuario.update(
+                { 
+                    nombre: req.body.nombre, 
+                    email: req.body.email, 
+                    rol: req.body.rol
+                },
                 {
                     where: {
                         email: req.body.email
