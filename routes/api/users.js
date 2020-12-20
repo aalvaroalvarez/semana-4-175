@@ -5,7 +5,7 @@ const auth = require('../../middlewares/auth');
 const router = routerx();
 
 // Manejo de rutas .com/api/usuario
-router.get('/list', userController.list);
+router.get('/list', auth.verificarAdministrador, userController.list);
 router.post('/add', auth.verificarAdministrador, userController.add);
 router.put('/update', auth.verificarAdministrador, userController.update);
 router.put('/activate', auth.verificarAdministrador,userController.activate);
