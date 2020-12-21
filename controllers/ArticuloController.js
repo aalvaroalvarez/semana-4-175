@@ -58,7 +58,8 @@ exports.update = async (req, res, next) => {
                     nombre: req.body.nombre, 
                     descripcion: req.body.descripcion,
                     estado: req.body.estado, 
-                    categoriaId: req.body.categoriaId 
+                    categoriaId: req.body.categoriaId, 
+                    imagen: req.body.imagen 
                 },
                 {
                     where: {
