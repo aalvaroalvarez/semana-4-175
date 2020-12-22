@@ -15,6 +15,9 @@ module.exports = {
         type: Sequelize.STRING
       },
       descripcion: {
+        type: Sequelize.TEXT
+      },
+      imagen: {
         type: Sequelize.STRING
       },
       estado: {

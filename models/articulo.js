@@ -17,10 +17,10 @@ module.exports = (sequelize, DataTypes) => {
   Articulo.init({
     codigo: DataTypes.STRING,
     nombre: DataTypes.STRING,
-    descripcion: DataTypes.STRING,
+    descripcion: DataTypes.TEXT,
+    imagen: DataTypes.STRING,
     estado: DataTypes.INTEGER,
-    categoriaId: DataTypes.INTEGER,
-    imagen: DataTypes.STRING
+    categoriaId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Articulo',
